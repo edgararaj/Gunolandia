@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)assets&quot; &quot;$(TargetDir)\assets\&quot; /F /Y /S" />
+  </Target>
+  
+  <ItemGroup>
+    <PackageReference Include="SharpDX.XAudio2" Version="4.2.0" />
+  </ItemGroup>
+
+</Project>
